@@ -1,5 +1,9 @@
-import OpenAI from 'openai';
-const openai = new OpenAI();
+require('dotenv').config();
+const OpenAI = require('openai');
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
 
 async function useChat(prompt) {
     const completion = await openai.chat.completions.create({
@@ -17,3 +21,6 @@ async function useChat(prompt) {
     return completion?.choices[0]?.message
 }
 
+module.exports ={
+    useChat
+}

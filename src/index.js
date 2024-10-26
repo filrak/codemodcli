@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { useChat } = require('./chat');
 
 function getFiles(directory) {
   const result = {};
@@ -37,10 +38,11 @@ function modifyFile(filePath, prompt) {
 
 }
 
-function main() {
+async function main() {
   const currentDirectory = process.cwd();
   const files = getFiles(currentDirectory + '/playground/storefront-unified-nuxt/components/AccountData');
-  console.log(files);
+  const chat = await useChat(files['AccountData.vue']);
+  console.log(chat);
 }
 
 main()
