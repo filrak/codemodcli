@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+__nuxt,
+#nuxt-test {
+  @apply isolate;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    @apply hidden
+    /* for Chrome, Safari, and Opera */;
+  }
+}
+
+@layer components {
+  .sf-list-item {
+    @apply text-gray-900 capitalize md:rounded-md active:bg-gray-200;
+    &-sm {
+      @apply text-sm px-4 py-1;
+    }
+    > span {
+      @apply flex;
+    }
+  }
+
+  .sf-chip {
+    &-sm {
+      @apply text-sm py-1.5 gap-1.5;
+    }
+  }
+
+  .sf-thumbnail {
+    @apply bg-[var(--color)] bg-[url:var(--color)];
+  }
+}
+
+:root {
+  --multicolored: linear-gradient(180deg, #4ade80 0%, #a78bfa 100%);
+  --petrol: #216477;
+  --oliv: olive;
+  --turquoiseaaa: #40e0d0;
+}

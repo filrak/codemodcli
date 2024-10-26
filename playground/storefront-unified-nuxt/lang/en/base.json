@@ -1,0 +1,458 @@
+{
+  "billing": {
+    "heading": "Billing address",
+    "description": "Add a billing address. You will receive the invoice to the email address provided above.",
+    "addButton": "Add billing address",
+    "change": "Change",
+    "sameAddress": "Same as shipping address"
+  },
+  "shipping": {
+    "heading": "Shipping address",
+    "description": "Add a shipping address to view shipping details.",
+    "addButton": "Add shipping address"
+  },
+  "form": {
+    "firstNameLabel": "First Name",
+    "lastNameLabel": "Last Name",
+    "phoneLabel": "Phone",
+    "countryLabel": "Country",
+    "streetNameLabel": "Street",
+    "streetNameHelp": "Street address or P.O. Box",
+    "streetNumberLabel": "Apt#, Suite, etc",
+    "streetNumberHelp": "Optional",
+    "titleLabel": "Title",
+    "cityLabel": "City",
+    "stateLabel": "State",
+    "postalCodeLabel": "ZIP Code",
+    "useAsShippingLabel": "Use as shipping address",
+    "selectPlaceholder": "-- Select --",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "passwordHint": "8 or more characters with a mix of letters, numbers and symbols.",
+    "termsAndConditionsLabel": "I declare that I have read and accept the {terms}",
+    "subscriptionLabel": "I wish to receive occasional emails about special offers, new products and exclusive promotions. I can cancel my subscription at any time. (Optional)",
+    "asterixHint": "* marked consents are required",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "confirm": "Confirm",
+    "saveChanges": "Save changes"
+  },
+  "myCart": "My Cart",
+  "orderSummary": "Order Summary",
+  "itemsInCart": "(Items: {count})",
+  "itemsSubtotal": "Items subtotal",
+  "originalPrice": "Original price",
+  "savings": "Savings",
+  "estimatedTax": "Estimated Sales Tax",
+  "apply": "Apply",
+  "total": "Total",
+  "goToCheckout": "Go to checkout",
+  "savingsTag": "You are saving {amount} on your order today!",
+  "promoCodePlaceholder": "Enter promo code",
+  "delivery": "Delivery",
+  "promoCode": "Promo Code",
+  "remove": "Remove",
+  "emptyCart": "Your cart is empty",
+  "emptyCartImgAlt": "empty cart image",
+  "allFromCategory": "Back to {name}",
+  "listSettings": "List settings",
+  "closeListSettings": "Close list settings",
+  "clearFilters": "Clear all filters",
+  "showProducts": "Show products",
+  "showMore": "Show more",
+  "showLess": "Show less",
+  "filters": "Filters",
+  "allProducts": "All products",
+  "sortBy": "Sort by",
+  "sortType": {
+    "latest": "Latest",
+    "priceUp": "Price from low to high",
+    "priceDown": "Price from high to low",
+    "relevance": "Relevance"
+  },
+  "numberOfProducts": "1 Product | {count} Products",
+  "prev": "Previous",
+  "next": "Next",
+  "searchResults": {
+    "noMatches": "Sorry, we couldn’t find any matches.",
+    "noResults": "No results found",
+    "helpText": "Have not found what you are looking for? Try a different search or browse the categories below.",
+    "browseProducts": "Browse Products"
+  },
+  "emptyStateText": "We cannot find any products that match the selected filters.",
+  "emptyStateText2": "Change or",
+  "emptyStateAltText": "Image for no products found",
+  "resultsFor": "Results for \"{phrase}\"",
+  "prevAriaLabel": "Go to previous page",
+  "nextAriaLabel": "Go to next page",
+  "secondPageAriaLabel": "Second page",
+  "lastPageAriaLabel": "Last page",
+  "currentPage": "Page {page} of {totalPages}",
+  "checkout": "Checkout",
+  "backToCart": "Back to My Cart",
+  "back": "Back",
+  "placeOrder": "Place order and pay",
+  "termsInfo": "I confirm that I have read and agreed with the {terms} and our {privacyPolicy}",
+  "termsAndConditions": "Terms and Conditions",
+  "privacyPolicy": "Privacy Policy",
+  "tomorrow": "Tomorrow",
+  "contactInfo": {
+    "heading": "Contact Information",
+    "description": "Add your email and phone number to communicate with the store.",
+    "add": "Add contact information",
+    "email": "Email",
+    "phone": "Phone number",
+    "phonePlaceholder": "eg. 123 456 7890",
+    "cancel": "Cancel",
+    "save": "Save",
+    "change": "Change",
+    "emailPersistent": "Email cannot be changed"
+  },
+  "checkoutPayment": {
+    "heading": "Payment method",
+    "comingSoon": "Coming soon",
+    "cash": "Cash on delivery",
+    "creditCard": "Credit card",
+    "paypalIconAlt": "Paypal Icon",
+    "applePayIconAlt": "Apple Pay Icon",
+    "googlePayIconAlt": "Google Pay icon"
+  },
+  "shippingMethod": {
+    "heading": "Shipping details",
+    "description": "Not available until a shipping address is provided."
+  },
+  "validation": {
+    "heading": "To complete order:",
+    "missingBillingAddress": "add billing address",
+    "missingShippingAddress": "add shipping address",
+    "missingEmail": "add customer email",
+    "missingShippingDetails": "add shipping details",
+    "missingPaymentMethod": "choose payment method",
+    "missingTermsAndConditions": "Your consent is required"
+  },
+  "size": "Size",
+  "colour": "Color",
+  "addToCart": "Add to cart",
+  "search": "Search",
+  "openSearchModalButtonLabel": "Click to open search modal",
+  "alokaiHomepage": "Alokai Storefront Homepage",
+  "home": "Home",
+  "products": "Products",
+  "cart": "Cart",
+  "wishlist": "Wishlist",
+  "addProductToWishlist": "Add {label} to wishlist",
+  "quantitySelector": "Quantity Selector",
+  "quantitySelectorDecrease": "Decrease value",
+  "quantitySelectorIncrease": "Increase value",
+  "of": "of",
+  "scrollTop": "Scroll to top",
+  "numberInCart": "1 product in cart | {count} products in cart",
+  "cardImagePlaceholder": "Card image placeholder",
+  "displayImage": "Display image",
+  "allProductsLinkText": "Categories",
+  "breadcrumbsDropdownText": "Show more breadcrumbs",
+  "youAreOfflineText": "It seems you are currently offline, check your internet connection",
+  "viewCart": "View Cart",
+  "compare": "Compare",
+  "addToList": "Add to list",
+  "category": "Category",
+  "imageOfSth": "Image of {name}",
+  "categories": {
+    "howToBuy": {
+      "label": "How to buy",
+      "subcategories": {
+        "paymentMethods": "Payment methods",
+        "orderPickup": "Order pickup",
+        "purchaseStatus": "Purchase status",
+        "trackOrders": "Track orders",
+        "returns": "Returns"
+      }
+    },
+    "help": {
+      "label": "Help",
+      "subcategories": {
+        "helpCenter": "Help center",
+        "securityFraud": "Security & fraud",
+        "feedback": "Feedback",
+        "contact": "Contact"
+      }
+    },
+    "services": {
+      "label": "Services",
+      "subcategories": {
+        "giftCards": "Gift cards",
+        "storeLocator": "Store Locator",
+        "clickCollect": "Click & Collect",
+        "sameDayDelivery": "Same Day Delivery",
+        "shippingDelivery": "Shipping & Delivery",
+        "couponsDiscounts": "Coupons & Discounts",
+        "newsletter": "Newsletter"
+      }
+    },
+    "about": {
+      "label": "About",
+      "subcategories": {
+        "aboutUs": "About us",
+        "jobs": "Jobs",
+        "pressCenter": "Press Center",
+        "affiliateProgram": "Affiliate program",
+        "suppliers": "Suppliers"
+      }
+    }
+  },
+  "contactOptions": {
+    "helpCenter": {
+      "label": "Help center",
+      "details": {
+        "description": "Find answers online anytime"
+      }
+    },
+    "liveChat": {
+      "label": "Live chat",
+      "details": {
+        "openingHours-1": "Mon–Fri, 5am–10pm PT",
+        "openingHours-2": "Sat–Sun, 6am–9pm PT"
+      }
+    },
+    "phone": {
+      "label": "1 234 567 8901",
+      "details": {
+        "openingHours-1": "Mon–Fri, 5am–10pm PT",
+        "openingHours-2": "Sat–Sun, 6am–9pm PT"
+      }
+    }
+  },
+  "bottomLinks": {
+    "terms": "Terms",
+    "privacyPolicy": "Privacy policy"
+  },
+  "socialLabel": "Go to {label} page",
+  "failedInfoHeader": "We are sorry!",
+  "failedInfoMessage": "Your order has not been fulfilled for the reason given below.",
+  "successInfoHeader": "Thank you!",
+  "successInfoMessage": "Your order no. {successOrderId} has been accepted and will soon appear on the  {successInfoLink} in your account.",
+  "successInfoMessageNotLoggedIn": "Your order no. {successOrderId} has been accepted.",
+  "successInfoLink": "order list",
+  "etaDelivery": "Estimated delivery time",
+  "shippingAddress": "Shipping address",
+  "shippingDetails": "Shipping details",
+  "somethingWentWrongImageAlt": "something went wrong image",
+  "orderSuccessfulImageAlt": "order successful image",
+  "backToCheckout": "Back to Checkout",
+  "continueShopping": "Continue shopping",
+  "orderErrorMessage": "A payment error has occured.",
+  "orderNumber": "Order number",
+  "productDetails": "Product Details",
+  "customerReviews": "Customer Reviews",
+  "loadingReviews": "Loading Reviews...",
+  "reviewsCount": "{count} reviews",
+  "outOfStock": "Out of stock",
+  "selectAddressModalHeading": "Set address",
+  "emptyAddressList": "You have no addresses saved.",
+  "addNewAddress": "Add New Address",
+  "newAddressModalHeading": "Provide address",
+  "additionalInfo": {
+    "shipping": "Free shipping, arrives by Thu, Apr 7. Want it faster? {addAddress} to see options",
+    "addAddress": "Add an address",
+    "pickup": "Pickup not available at Super center. {checkAvailability}",
+    "checkAvailability": "Check availability nearby",
+    "returns": "Free 30-Day returns. {details}",
+    "details": "Details"
+  },
+  "sale": "Sale",
+  "readMore": "Read more",
+  "readLess": "Read less",
+  "noReviews": "No reviews",
+  "loading": "Loading",
+  "gallery": {
+    "count": "{current} of {total}",
+    "thumb": "Go to slide {index}",
+    "prev": "Previous",
+    "next": "Next",
+    "image": "Slide {index}"
+  },
+  "review": {
+    "reportAbuse": "Report Abuse",
+    "verifiedPurchase": "Verified purchase"
+  },
+  "orderSuccess": {
+    "orderTitle": "Order",
+    "orderDate": "Order date",
+    "paymentAmount": "Payment amount",
+    "paymentMethod": "Payment method",
+    "billingAddress": "Billing address"
+  },
+  "account": {
+    "heading": "My Account",
+    "navBarBottomHeading": "Account",
+    "logout": "Logout",
+    "back": "Back",
+    "accountSettings": {
+      "heading": "Account Settings",
+      "section": {
+        "personalData": "Personal Data",
+        "shippingDetails": "Shipping Details"
+      },
+      "personalData": {
+        "yourName": "Your name",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "delete": "Delete",
+        "edit": "Edit",
+        "change": "Change",
+        "contactInformation": "Contact information",
+        "yourPassword": "Your password",
+        "passwordChange": "Password change",
+        "newPassword": "New password",
+        "newPasswordAgain": "Repeat new password",
+        "changePassword": "Change password",
+        "currentPassword": "Current password",
+        "passwordHelp": "Use 8 or more characters with a mix of letters, numbers and symbols.",
+        "errors": {
+          "passwordComplexity": "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
+          "wrongPassword": "The current password is incorrect",
+          "unknown": "Something went wrong"
+        }
+      },
+      "shippingDetails": {
+        "edit": "Edit",
+        "shippingAddress": "Shipping Address",
+        "addAddress": "Add Shipping Address",
+        "emptyStateHint": "Save an address to make checkout faster.",
+        "confirmation": {
+          "delete": "Delete",
+          "cancel": "Cancel",
+          "deleteAddress1": "Are you sure you want to delete this address?",
+          "deleteAddress2": "This action cannot be undone."
+        }
+      }
+    },
+    "ordersAndReturns": {
+      "heading": "Orders & Returns",
+      "orderId": "Order ID",
+      "orderDate": "Order date",
+      "amount": "Amount",
+      "status": "Status",
+      "details": "Details",
+      "myOrders": "My orders",
+      "noOrders": "You haven’t shopped with us yet",
+      "continue": "Continue shopping",
+      "noOrdersAltText": "No orders",
+      "returnsHeading": "Returns",
+      "returnsAltText": "No returns",
+      "returnsDescription": "You haven't returned products yet",
+      "listOfOrders": "List of orders",
+      "section": {
+        "myOrders": "My Orders",
+        "returns": "Returns"
+      },
+      "orderDetails": {
+        "heading": "Order details",
+        "orderId": "Order ID",
+        "orderDate": "Order date",
+        "paymentAmount": "Payment amount",
+        "status": "Status",
+        "price": "Price",
+        "quantity": "Quantity",
+        "subtotal": "Subtotal",
+        "tableCaption": "Order details",
+        "product": "Product",
+        "itemsSubtotal": "Items Subtotal",
+        "delivery": "Delivery",
+        "estimatedTax": "Estimated Sales Tax",
+        "total": "Total",
+        "billingAddress": "Billing address",
+        "paymentMethod": "Payment method",
+        "shippingAddress": "Shipping address"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "heading": "Log in",
+      "submitLabel": "Log in",
+      "forgotPasswordLabel": "Forgot your password?",
+      "rememberMeLabel": "Remember me",
+      "createAccountBanner": "First time here? {createAccount}.",
+      "createAccountLinkLabel": "Create Account",
+      "error": "We could not log you in with these details. Please make sure you are using the right email and password."
+    },
+    "signup": {
+      "heading": "Create Account",
+      "createButton": "Create Account",
+      "bannerText": "Already have an account? Switch to {login}",
+      "registrationError": "Could not register account with given data, please check the input values and try again.",
+      "modal": {
+        "heading": "Welcome",
+        "description": "Your account has been created. You can {information} to your account now, so you do not have to do this later during your purchase.",
+        "information": "add information",
+        "button": "Go Shopping",
+        "imageAlt": "Signup successful"
+      }
+    },
+    "resetPassword": {
+      "heading": "Reset password",
+      "info": "Enter the email address you used to sign up. We will send you a password reset link, that you’ll be able to use to set a new password for your account.",
+      "email": "Email",
+      "continue": "Continue",
+      "backToLogin": "Back to Login",
+      "thankYou": "Thank you, if there is an account registered with {0}, you should receive the password reset link in your inbox right away.",
+      "anotherEmail": "I need to try another email address",
+      "emailSent": "Email sent"
+    },
+    "setNewPassword": {
+      "heading": "Set new password",
+      "button": "Set new password",
+      "password": "New password",
+      "repeatPassword": "Repeat new password",
+      "help": "8 or more characters with a mix of letters, numbers and symbols.",
+      "description": "Create the new password you want to use to log in to your account."
+    }
+  },
+  "messages": {
+    "error": {
+      "default": "Something went wrong.",
+      "cart": {
+        "applyCartCoupon": "The discount code was not found or can not be applied.",
+        "removeCartCoupon": "The discount code can not be removed.",
+        "updateCart": "Cart can not be updated.",
+        "addToCart": "Product can not be added to the cart."
+      },
+      "logout": "Something went wrong. Logout failed.",
+      "passwordChanged": "The password has not changed. Fix problems and try again."
+    },
+    "success": {
+      "default": "Operation succeeded.",
+      "address": {
+        "deleteAddress": "Address successfully deleted.",
+        "createAddress": "Address successfully created.",
+        "updateAddress": "Address successfully updated."
+      },
+      "cart": {
+        "updateCart": "Cart updated.",
+        "applyCartCoupon": "Discount code applied.",
+        "removeCartCoupon": "Discount code removed.",
+        "addToCart": "Product has been added to the cart."
+      },
+      "logout": "Successfully logged out.",
+      "passwordChanged": "The password was successfully changed."
+    }
+  },
+  "language": "Language",
+  "currency": "Currency",
+  "choosePreferences": "Choose your region preferences",
+  "selectLocation": "Select your location",
+  "creditCard": {
+    "cardNumber": "Card number",
+    "expiryMonth": "Expiry month",
+    "expiryYear": "Expiry year",
+    "cardNumberPattern": "Please enter a valid card number in the format: 4111 1111 1111 1111"
+  },
+  "cartProductCard": {
+    "tag": {
+      "outOfStock": "Out of stock",
+      "smallerQuantity": "Wanted: {desiredQuantity}, {maxValue} left in stock"
+    }
+  }
+}
