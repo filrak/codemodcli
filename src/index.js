@@ -52,7 +52,7 @@ async function main() {
     const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + instructions['01.md']);
     // const fileDirsToModify = files.split(',').map(file => currentDirectory + '/playground/storefront-unified-nuxt/' + file);
     // const filesToMofify = getFiles(fileDirsToModify)
-    const changedFiles = await useChat('Modify the following file ' + readFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit) + ' according to the instructions in ' + instructions['01.md']);
+    const changedFiles = await useChat('Modify the following file ' + readFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit) + ' according to the instructions in ' + instructions['01.md'] + ' and return only the modified file');
     writeFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit, changedFiles.content);
 }
 
