@@ -40,14 +40,8 @@ function writeFile(filePath, content) {
     fs.writeFileSync(filePath, content);
 }
 
-function modifyFile(filePath, prompt) {
-
-}
-
 async function main() {
   const currentDirectory = process.cwd();
-//   const files = getFiles(currentDirectory + '/playground/storefront-unified-nuxt/components/AccountData');
-//   const chat = await useChat(files['AccountData.vue']);
     const instructions = getFiles(currentDirectory + '/playground/instructions');
     const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + instructions['01.md']);
     // const fileDirsToModify = files.split(',').map(file => currentDirectory + '/playground/storefront-unified-nuxt/' + file);
