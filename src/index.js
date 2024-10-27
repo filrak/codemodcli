@@ -52,17 +52,19 @@ function writeFile(filePath, content) {
     fs.writeFileSync(filePath, content);
 }
 
-// const fileDirsToModify = files.split(',').map(file => currentDirectory + '/playground/storefront-unified-nuxt/' + file);
 async function main() {
     const currentDirectory = process.cwd();
-    const instructions = getFileList(currentDirectory + '/playground/instructions');
-    const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + instructions['01.md']);
+    const instructions = readFile(currentDirectory + '/playground/instructions/01.md');
+    const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + instructions);
     const filesToModify = fileToEdit.split(',').map(file => currentDirectory + '/playground/storefront-unified-nuxt/' + file);
     console.log(filesToModify);
     const filesToModifyContent = await getFileContent(filesToModify);
     console.log(filesToModifyContent);
-    // const changedFiles = await useChat('Modify the following file ' + readFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit) + ' according to the instructions in ' + instructions['01.md'] + ' and return only the modified file');
-    // writeFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit, changedFiles.content);
+    
+    for (const [filePath, content] of Object.entries(filesToModifyContent)) {
+        const changedFile = await useChat('Modify the following file ' + content + ' according to the instructions in ' + instructions + ' and return only the modified file. Do not include any other text than the modified file.');
+        writeFile(filePath, changedFile.content);
+    }
 }
 
 main()
