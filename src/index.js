@@ -26,12 +26,18 @@ function getFiles(directory) {
   return result;
 }
 
-function readFile(filePath) {
 
+function readFile(filePath) {
+  try {
+    return fs.readFileSync(filePath, 'utf-8');
+  } catch (error) {
+    console.error(`Error reading file ${filePath}:`, error);
+    return null;
+  }
 }
 
 function writeFile(filePath, content) {
-
+    fs.writeFileSync(filePath, content);
 }
 
 function modifyFile(filePath, prompt) {
@@ -40,9 +46,14 @@ function modifyFile(filePath, prompt) {
 
 async function main() {
   const currentDirectory = process.cwd();
-  const files = getFiles(currentDirectory + '/playground/storefront-unified-nuxt/components/AccountData');
-  const chat = await useChat(files['AccountData.vue']);
-  console.log(chat);
+//   const files = getFiles(currentDirectory + '/playground/storefront-unified-nuxt/components/AccountData');
+//   const chat = await useChat(files['AccountData.vue']);
+    const instructions = getFiles(currentDirectory + '/playground/instructions');
+    const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + instructions['01.md']);
+    // const fileDirsToModify = files.split(',').map(file => currentDirectory + '/playground/storefront-unified-nuxt/' + file);
+    // const filesToMofify = getFiles(fileDirsToModify)
+    const changedFiles = await useChat('Modify the following file ' + readFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit) + ' according to the instructions in ' + instructions['01.md']);
+    writeFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit, changedFiles.content);
 }
 
 main()

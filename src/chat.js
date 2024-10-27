@@ -10,12 +10,12 @@ async function useChat(prompt) {
     model: "gpt-4o-mini",
     messages: [
         { role: "system", 
-            content: 'Tell me what this code does and how it works in less than 100 words'
-        },
-        {
-            role: "user",
             content: prompt
-        },
+        }
+        // {
+        //     role: "user",
+        //     content: prompt
+        // },
     ],
     });
     return completion?.choices[0]?.message
