@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { useChat } = require('./chat');
 
-function getFiles(directory) {
+function getFileList(directory) {
   const result = {};
 
   function traverseDirectory(currentPath) {
@@ -26,6 +26,18 @@ function getFiles(directory) {
   return result;
 }
 
+async function getFileContent(fileList) {
+  const fileContent = {};
+  for (const filePath of fileList) {
+    try {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      fileContent[filePath] = content;
+    } catch (error) {
+      console.error(`Error reading file ${filePath}:`, error);
+    }
+  }
+  return fileContent;
+}
 
 function readFile(filePath) {
   try {
@@ -40,14 +52,17 @@ function writeFile(filePath, content) {
     fs.writeFileSync(filePath, content);
 }
 
+// const fileDirsToModify = files.split(',').map(file => currentDirectory + '/playground/storefront-unified-nuxt/' + file);
 async function main() {
-  const currentDirectory = process.cwd();
-    const instructions = getFiles(currentDirectory + '/playground/instructions');
+    const currentDirectory = process.cwd();
+    const instructions = getFileList(currentDirectory + '/playground/instructions');
     const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + instructions['01.md']);
-    // const fileDirsToModify = files.split(',').map(file => currentDirectory + '/playground/storefront-unified-nuxt/' + file);
-    // const filesToMofify = getFiles(fileDirsToModify)
-    const changedFiles = await useChat('Modify the following file ' + readFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit) + ' according to the instructions in ' + instructions['01.md'] + ' and return only the modified file');
-    writeFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit, changedFiles.content);
+    const filesToModify = fileToEdit.split(',').map(file => currentDirectory + '/playground/storefront-unified-nuxt/' + file);
+    console.log(filesToModify);
+    const filesToModifyContent = await getFileContent(filesToModify);
+    console.log(filesToModifyContent);
+    // const changedFiles = await useChat('Modify the following file ' + readFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit) + ' according to the instructions in ' + instructions['01.md'] + ' and return only the modified file');
+    // writeFile(currentDirectory + '/playground/storefront-unified-nuxt/' + fileToEdit, changedFiles.content);
 }
 
 main()
