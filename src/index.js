@@ -62,7 +62,7 @@ async function main() {
     console.log(filesToModifyContent);
     
     for (const [filePath, content] of Object.entries(filesToModifyContent)) {
-        const changedFile = await useChat('Modify the following file ' + content + ' according to the instructions in ' + instructions + ' and return only the modified file. Do not include any other text than the modified file.');
+        const changedFile = await useChat('Modify the following file ' + content + ' according to the instructions in ' + instructions + ' and return only the modified file. Do not include any other text than the modified file, even the formatting for code blocks.');
         writeFile(filePath, changedFile.content);
     }
 }

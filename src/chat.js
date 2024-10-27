@@ -12,11 +12,7 @@ async function useChat(prompt) {
         { role: "system", 
             content: prompt
         }
-        // {
-        //     role: "user",
-        //     content: prompt
-        // },
-    ],
+    ]
     });
     return completion?.choices[0]?.message
 }
