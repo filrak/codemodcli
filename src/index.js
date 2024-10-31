@@ -1,42 +1,20 @@
 const fs = require('fs');
 const { useChat } = require('./chat');
+const { fetchRepository } = require('./repo');
+const { EDITABLES_DIR, INSTRUCTIONS_DIR } = require('./consts');
 
-async function getFileContent(fileList) {
-  const fileContent = {};
-  for (const filePath of fileList) {
-    try {
-      const content = fs.readFileSync(filePath, 'utf-8');
-      fileContent[filePath] = content;
-    } catch (error) {
-      console.error(`Error reading file ${filePath}:`, error);
-    }
-  }
-  return fileContent;
-}
-
-function readFile(filePath) {
-  try {
-    return fs.readFileSync(filePath, 'utf-8');
-  } catch (error) {
-    console.error(`Error reading file ${filePath}:`, error);
-    return null;
-  }
-}
-
-function writeFile(filePath, content) {
-    fs.writeFileSync(filePath, content);
-}
-
-async function run(options = { instructionsDir, filesDir, framework }) {
+async function run(options = { repositoryUrl, instructionsDir, filesDir: '/', framework }) {
     const frameworkInstructions = {
       nuxt: 'Ignore tsx file edits and dont put them on a list.',
       next: 'Ignore vue files edits and dont put them on a list.'
     }
-    
+
+    const filesDir = EDITABLES_DIR + options.filesDir
+
     const currentDirectory = process.cwd();
     const instructions = readFile(currentDirectory +  options.instructionsDir);
     const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + frameworkInstructions[options.framework]+ instructions);
-    const filesToModify = fileToEdit.split(',').map(file => currentDirectory + options.filesDir + file.replace(/\s/g, ''));
+    const filesToModify = fileToEdit.split(',').map(file => currentDirectory + filesDir + file.replace(/\s/g, ''));
     const filesToModifyContent = await getFileContent(filesToModify);
     
     for (const [filePath, content] of Object.entries(filesToModifyContent)) {
@@ -46,7 +24,10 @@ async function run(options = { instructionsDir, filesDir, framework }) {
 }
 
 run({ 
-  instructionsDir: '/playground/instructions/01.md', 
+  repositoryUrl: '',
+  instructionsDir: '/playground/instructions/01.md',
   filesDir: '/playground/storefront-unified-nuxt/', 
   framework: 'nuxt' 
 })
+
+// fetchRepository('https://github.com/vuestorefront/vue-storefront');
