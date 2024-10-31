@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 async function getFileContent(fileList) {
     const fileContent = {};
     for (const filePath of fileList) {

@@ -1,8 +1,8 @@
 const { execSync } = require('child_process');
 
-function fetchRepository(repoUrl) {
+function fetchRepository({ url, dir}) {
     try {
-        execSync(`cd playground && git clone ${repoUrl}`, { stdio: 'inherit' });
+        execSync(`cd ${dir} && git clone ${url}`, { stdio: 'inherit' });
     } catch (error) {
         console.error('Error fetching repository:', error);
     }
