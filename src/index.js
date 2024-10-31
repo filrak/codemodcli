@@ -17,6 +17,7 @@ async function run(options = { repository, instructionsDir, filesDir: '/', frame
     const instructions = isFile(currentDirectory + options.instructionsDir) 
       ? readFile(currentDirectory + options.instructionsDir)
       : readFiles(currentDirectory + options.instructionsDir);
+      // TO-DO: use extractFilesToEdit to conditionally extratc the list of files OR just run readFiles
     const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + frameworkInstructions[options.framework]+ instructions);
     const filesToModify = fileToEdit.split(',').map(file => currentDirectory + options.filesDir + file.replace(/\s/g, ''));
     const filesToModifyContent = await readFileList(filesToModify);
@@ -33,7 +34,8 @@ run({
     dir: 'playground' 
   },
   instructionsDir: '/playground/instructions/01.md',
-  filesDir: '/playground/unified-storefronts/apps/storefront-unified-nuxt/', 
+  extractFilesToEdit: true,
+  filesDir: '/playground/unified-storefronts/apps/storefront-unified-nuxt/',
   framework: 'nuxt' 
 })
 
