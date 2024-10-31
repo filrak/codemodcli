@@ -25,8 +25,12 @@ async function run(options = { repository, instructionsDir, filesDir: '/', frame
 }
 
 run({ 
-  // repository: { url:'https://github.com/vuestorefront/vue-storefront', dir: 'playground' },
+  repository: { url:'https://github.com/vuestorefront/unified-storefronts', dir: 'playground' },
   instructionsDir: '/playground/instructions/01.md',
-  filesDir: '/playground/storefront-unified-nuxt/', 
+  filesDir: '/playground/unified-storefronts/apps/storefront-unified-nuxt/', 
   framework: 'nuxt' 
 })
+
+// TO-DO: Figure out how to give more specific instructions for assembling withotu modifying instructions.md
+// Probbaly We need a separate file with isntructions telling how to deal with them
+// Or maybe all we need are isntructions for LLM?
