@@ -27,7 +27,7 @@ function writeFile(filePath, content) {
     fs.writeFileSync(filePath, content);
 }
 
-async function main() {
+async function main(options = { framework: 'nuxt' }) {
     const frameworkInstructions = {
       nuxt: 'Ignore tsx file edits and dont put them on a list.',
       next: 'Ignore vue files edits and dont put them on a list.'
@@ -35,7 +35,7 @@ async function main() {
     
     const currentDirectory = process.cwd();
     const instructions = readFile(currentDirectory + '/playground/instructions/01.md');
-    const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + frameworkInstructions[nuxt]+ instructions);
+    const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + frameworkInstructions[options.framework]+ instructions);
     const filesToModify = fileToEdit.split(',').map(file => currentDirectory + '/playground/storefront-unified-nuxt/' + file.replace(/\s/g, ''));
     const filesToModifyContent = await getFileContent(filesToModify);
     
@@ -45,4 +45,4 @@ async function main() {
     }
 }
 
-main()
+main({ framework: 'nuxt'})
