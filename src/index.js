@@ -44,7 +44,3 @@ run({
   filesDir: '/playground/unified-storefronts/apps/storefront-unified-nuxt/',
   framework: 'nuxt' 
 })
-
-// TO-DO: Figure out how to give more specific instructions for assembling without modifying instructions.md
-// Probbaly We need a separate file with isntructions telling how to deal with them
-// To make it suitable for migrations, allow pulling whole repo (or certain file types) into the prompt
