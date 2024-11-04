@@ -14,23 +14,23 @@ async function run(options = { repository, instructionsDir, filesDir: '/', frame
     }
 
     const currentDirectory = process.cwd();
-    const instructions = await isFile(currentDirectory + options.instructionsDir) 
-      ? await readFile(currentDirectory + options.instructionsDir)
-      : await readFiles(currentDirectory + options.instructionsDir);
+    const instructions = isFile(currentDirectory + options.instructionsDir)
+      ? readFile(currentDirectory + options.instructionsDir)
+      : readFiles(currentDirectory + options.instructionsDir);
       
     let filesToModifyContent;
 
     if (options.extractFilesToEdit) {
       const { content: fileToEdit } = await useChat('Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas' + frameworkInstructions[options.framework]+ instructions);
       const filesToModify = fileToEdit.split(',').map(file => currentDirectory + options.filesDir + file.replace(/\s/g, ''));
-       filesToModifyContent =  await readFileList(filesToModify);
+      filesToModifyContent = readFileList(filesToModify);
     } else {
-       filesToModifyContent =  await readFiles(currentDirectory + options.filesDir);
+      filesToModifyContent = readFiles(currentDirectory + options.filesDir);
     }
     
     for (const [filePath, content] of Object.entries(filesToModifyContent)) {
         const changedFile = await useChat('You are a developer with a task of modifying a list of files following specific instructions. Modify the following file ' + content + ' according to the instructions in ' + instructions + ', and return only the modified file. Do not include any other text than the modified file, even the formatting for code blocks.');
-        await writeFile(filePath, changedFile.content);
+        writeFile(filePath, changedFile.content);
         console.log('Modified file: ' + filePath);
     }
 }

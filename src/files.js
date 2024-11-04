@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-async function readFileList(fileList) {
+function readFileList(fileList) {
   const fileContent = {};
   for (const filePath of fileList) {
     try {
@@ -13,7 +13,7 @@ async function readFileList(fileList) {
   return fileContent;
 }
 
-async function readFile(filePath) {
+function readFile(filePath) {
   try {
     return fs.readFileSync(filePath, 'utf-8');
   } catch (error) {
@@ -22,11 +22,11 @@ async function readFile(filePath) {
   }
 }
 
-async function writeFile(filePath, content) {
+function writeFile(filePath, content) {
     fs.writeFileSync(filePath, content);
 }
 
-async function isFile(path) {
+function isFile(path) {
   try {
     const stats = fs.statSync(path);
     return stats.isFile();
@@ -35,7 +35,7 @@ async function isFile(path) {
   }
 }
 
-async function readFiles(dirPath) {
+function readFiles(dirPath) {
   const fileContent = {};
   try {
     const files = fs.readdirSync(dirPath);
