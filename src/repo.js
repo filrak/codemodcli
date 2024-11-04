@@ -1,8 +1,8 @@
 const { execSync } = require('child_process');
 
-function fetchRepository({ url, dir}) {
+function fetchRepository({ url, copyTo}) {
     try {
-        execSync(`cd ${dir} && git clone ${url}`, { stdio: 'inherit' });
+        execSync(`cd ${copyTo} && git clone ${url}`, { stdio: 'inherit' });
     } catch (error) {
         console.error('Error fetching repository:', error);
     }

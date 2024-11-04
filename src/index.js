@@ -29,15 +29,16 @@ async function run(options = { repository, instructionsDir, filesDir: '/', frame
     }
     
     for (const [filePath, content] of Object.entries(filesToModifyContent)) {
-        const changedFile = await useChat('Modify the following file ' + content + ' according to the instructions in ' + instructions + ', and return only the modified file. Do not include any other text than the modified file, even the formatting for code blocks.');
-        writeFile(filePath, changedFile.content);
+        const changedFile = await useChat('You are a developer with a task of modifying a list of files following specific instructions. Modify the following file ' + content + ' according to the instructions in ' + instructions + ', and return only the modified file. Do not include any other text than the modified file, even the formatting for code blocks.');
+        await writeFile(filePath, changedFile.content);
+        console.log('Modified file: ' + filePath);
     }
 }
 
 run({ 
   repository: { 
     url:'https://github.com/vuestorefront/unified-storefronts', 
-    dir: 'playground' 
+    copyTo: 'playground' 
   },
   instructionsDir: '/playground/instructions/01.md',
   extractFilesToEdit: true,

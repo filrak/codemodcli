@@ -25,6 +25,7 @@ async function readFile(filePath) {
 async function writeFile(filePath, content) {
     fs.writeFileSync(filePath, content);
 }
+
 async function isFile(path) {
   try {
     const stats = fs.statSync(path);
@@ -33,6 +34,7 @@ async function isFile(path) {
     return false;
   }
 }
+
 async function readFiles(dirPath) {
   const fileContent = {};
   try {
