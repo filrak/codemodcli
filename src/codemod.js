@@ -1,7 +1,8 @@
+const { bold, green } = require('kleur');
+
 const { useChat } = require('./chat');
 const { cloneRepository } = require('./repo');
 const { readFileList, readFile, writeFile, isFile,  readFiles } = require('./files');
-const { bold, green} = require('kleur');
 
 const frameworkInstructions = {
   nuxt: 'Ignore tsx file edits and dont put them on a list.',
