@@ -23,3 +23,11 @@ node cli --
     --workingdir=/playground/unified-storefronts/apps/storefront-unified-nuxt/ 
     --framework=nuxt
 ```
+
+## TO-DO
+
+- [ ] Test for larger modules
+- [ ] Test for migration guides
+- [ ] Better error handling and gracefull failure
+- [ ] Ste-by-step input for the CLI
+- [ ] Instructions from the URL
