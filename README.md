@@ -16,7 +16,7 @@ npm run src
 Or to run it via the CLI:
 
 ```bash
-npm run cli -- 
+node cli -- 
     --repo-url=https://github.com/vuestorefront/unified-storefronts 
     --repo-copyto=playground 
     --instructions-path=/playground/instructions/01.md 
