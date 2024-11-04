@@ -1,6 +1,6 @@
 const { execSync } = require('child_process');
 
-function fetchRepository({ url, copyTo}) {
+function cloneRepository({ url, copyTo}) {
     try {
         execSync(`cd ${copyTo} && git clone ${url}`, { stdio: 'inherit' });
     } catch (error) {
@@ -9,5 +9,5 @@ function fetchRepository({ url, copyTo}) {
 }
 
 module.exports = { 
-    fetchRepository 
+    cloneRepository 
 };
