@@ -7,8 +7,10 @@ runCodemod({
     },
     instructions: {
       path: '/playground/instructions/01.md',
+      url: false, // for scrapping, WIP
       extractFilesToEdit: true,
     },
     workingDir: '/playground/unified-storefronts/apps/storefront-unified-nuxt/',
     framework: 'nuxt' 
-  })
+})
+

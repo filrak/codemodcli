@@ -14,6 +14,12 @@ async function scrapUrl(url, querySelector) {
   }
 }
 
+// async function test () {
+//   const result = await scrapUrl('https://docs.alokai.com/storefront/modules/product-list', '.document-driven-page');
+//   console.log(result);
+// }
+
+// test()
 module.exports = {
   scrapUrl
 };
