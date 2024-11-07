@@ -13,7 +13,8 @@ runCodemod({
         querySelector: '.document-driven-page'
       }
     },
-    workingDir: '/playground/unified-storefronts/apps/storefront-unified-nuxt/',
-    framework: 'nuxt' 
+    workingDir: '/playground/unified-storefronts/apps/storefront-unified-nextjs/',
+    framework: 'next' 
 })
 
+// todo- id adds weird import to searchparams in the category[[...slugs]]/page.tsx
