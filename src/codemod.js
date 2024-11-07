@@ -3,6 +3,7 @@ const { bold, green } = require('kleur');
 const { useChat } = require('./chat');
 const { cloneRepository } = require('./repo');
 const { readFileList, readFile, writeFile, isFile,  readFiles } = require('./files');
+const { scrapUrl } = require('./scrapping');
 
 const frameworkInstructions = {
   nuxt: 'Ignore tsx file edits and dont put them on a list.',
@@ -18,10 +19,24 @@ async function runCodemod(options = { workingDir: '/' }) {
     }
 
     const currentDirectory = process.cwd();
-    const instructions = isFile(currentDirectory + options.instructions.path)
-      ? readFile(currentDirectory + options.instructions.path)
-      : readFiles(currentDirectory + options.instructions.path);
-      
+
+    let instructions;
+    if (options.instructions.fromUrl) {
+      console.log(bold('Fetching instructions from URL...'));
+      instructions = await scrapUrl(
+        options.instructions.fromUrl.url, 
+        options.instructions.fromUrl.querySelector
+      );
+      if (!instructions) {
+        throw new Error('Failed to fetch instructions from URL');
+      }
+      console.log(bold().green('Done!'));
+    } else {
+      instructions = isFile(currentDirectory + options.instructions.path)
+        ? readFile(currentDirectory + options.instructions.path)
+        : readFiles(currentDirectory + options.instructions.path);
+    }
+
     let filesToModifyContent;
 
     if (options.instructions.extractFilesToEdit) {

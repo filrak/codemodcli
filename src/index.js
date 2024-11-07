@@ -6,9 +6,12 @@ runCodemod({
       copyTo: 'playground' 
     },
     instructions: {
-      path: '/playground/instructions/01.md',
-      url: false, // for scrapping, WIP
+      // path: '/playground/instructions/01.md',
       extractFilesToEdit: true,
+      fromUrl: {
+        url: 'https://docs.alokai.com/storefront/modules/product-list',
+        querySelector: '.document-driven-page'
+      }
     },
     workingDir: '/playground/unified-storefronts/apps/storefront-unified-nuxt/',
     framework: 'nuxt' 
