@@ -12,10 +12,14 @@ async function cli() {
         instructions: {
           path: argv['instructions-path'] || '/playground/instructions/01.md',
           extractFilesToEdit: argv['instructions-extractfiles'] || false,
+          fromUrl: argv['from-url'] ? {
+            url: argv['from-url'],
+            querySelector: argv['from-selector']
+          }
         },
         workingDir: argv['workingdir'] || '/playground/unified-storefronts/apps/storefront-unified-nuxt/',
         framework: argv['framework'] || 'nuxt' 
-      })
+    });
 }
 
 cli();

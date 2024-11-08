@@ -20,6 +20,9 @@ node cli --
     --repo-url=https://github.com/vuestorefront/unified-storefronts 
     --repo-copyto=playground 
     --instructions-path=/playground/instructions/01.md 
+    --instructions-extractfiles=true
+    --from-url=https://docs.alokai.com/storefront/modules/product-list
+    --from-selector=.document-driven-page
     --workingdir=/playground/unified-storefronts/apps/storefront-unified-nuxt/ 
     --framework=nuxt
 ```
@@ -30,4 +33,4 @@ node cli --
 - [ ] Test for migration guides
 - [ ] Better error handling and gracefull failure
 - [ ] Ste-by-step input for the CLI
-- [ ] Instructions from the URL
+- [x] Instructions from the URL
