@@ -4,7 +4,7 @@ const { useChat } = require('./chat');
 const { cloneRepository } = require('./repo');
 const { readFileList, readFile, writeFile, isFile,  readFiles } = require('./files');
 const { useScrapper } = require('./scrapping');
-
+const { directory, file } = require('./utilities.wip');
 const frameworkInstructions = {
   nuxt: 'Ignore tsx file edits and dont put them on a list.',
   next: 'Ignore vue files edits and dont put them on a list.'
@@ -33,8 +33,8 @@ async function runCodemod(options = { workingDir: '/' }) {
       console.log(bold().green('Done!'));
     } else {
       instructions = isFile(currentDirectory + options.instructions.path)
-        ? readFile(currentDirectory + options.instructions.path)
-        : readFiles(currentDirectory + options.instructions.path);
+        ? file(currentDirectory + options.instructions.path).toString()
+        : directory(currentDirectory + options.instructions.path).toObject();
     }
 
     let filesToModifyContent;

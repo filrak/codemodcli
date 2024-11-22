@@ -16,9 +16,9 @@ const directory = (path) => ({
         return readFiles(path);
     }
 });
-
-const file = {
-    toString: async function(path) {
+ 
+const file = (path) => ({
+    toString: async function () {
         try {
             const content = await fs.promises.readFile(path, 'utf8');
             return content;
@@ -27,14 +27,14 @@ const file = {
             return '';
         }
     },
-    save: async function (path, content) {
+    save: async function (content) {
         try {
             await fs.promises.writeFile(path, content);
         } catch (error) {
             console.error('Error saving file:', error);
         }
     }
-}
+});
 
 
 module.exports = {
