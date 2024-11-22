@@ -3,7 +3,7 @@ const { bold, green } = require('kleur');
 const { useChat } = require('./chat');
 const { cloneRepository } = require('./repo');
 const { readFileList, readFile, writeFile, isFile,  readFiles } = require('./files');
-const { scrapUrl } = require('./scrapping');
+const { useScrapper } = require('./scrapping');
 
 const frameworkInstructions = {
   nuxt: 'Ignore tsx file edits and dont put them on a list.',
@@ -23,7 +23,7 @@ async function runCodemod(options = { workingDir: '/' }) {
     let instructions;
     if (options.instructions.fromUrl) {
       console.log(bold('Fetching instructions from URL...'));
-      instructions = await scrapUrl(
+      instructions = await useScrapper(
         options.instructions.fromUrl.url, 
         options.instructions.fromUrl.querySelector
       );

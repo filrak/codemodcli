@@ -1,6 +1,6 @@
 const cheerio = require('cheerio');
 
-async function scrapUrl(url, querySelector) {
+async function useScrapper(url, querySelector) {
   try {
     const response = await fetch(url);
     const html = await response.text();
@@ -21,5 +21,5 @@ async function scrapUrl(url, querySelector) {
 
 // test()
 module.exports = {
-  scrapUrl
+  useScrapper
 };
