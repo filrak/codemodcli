@@ -2,9 +2,9 @@ const { useChat } = require('./chat');
 const { readFileList, readFiles } = require('./files');
 const fs = require('fs');
 
-const fromFile = (file) => ({
-    extractFilesToEdit: async (file) => {
-        const { content: fileToEdit } = await useChat(`Read the following file at ${file} and extract the list of files that needs to be changed. Answer only with a list of files separated by commas${instructions}`);
+const fromFileContent = (content) => ({
+    extractFilesToEdit: async (additionalInstructions) => {
+        const { content: fileToEdit } = await useChat(`Read the following file and extract the list of files that needs to be changed. Answer only with a list of files separated by commas${additionalInstructions}, ${fileContent}`);
         const filesToModify = fileToEdit.split(',').map(file => currentDirectory + options.workingDir + file.replace(/\s/g, ''));
         filesToModifyContent = readFileList(filesToModify);
         return filesToModifyContent;
