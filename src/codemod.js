@@ -41,8 +41,8 @@ async function runCodemod(options = { workingDir: '/' }) {
 
     if (options.instructions.extractFilesToEdit) {
       console.log(bold('Extracing list of files to edit from the instructions...'));
-      const { content: fileToEdit } = await useChat(`Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas${frameworkInstructions[options.framework]}${instructions}`);
-      const filesToModify = fileToEdit.split(',').map(file => currentDirectory + options.workingDir + file.replace(/\s/g, ''));
+      const { content: filesToEdit } = await useChat(`Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas${frameworkInstructions[options.framework]}${instructions}`);
+      const filesToModify = filesToEdit.split(',').map(file => currentDirectory + options.workingDir + file.replace(/\s/g, ''));
       filesToModifyContent = readFileList(filesToModify);
       console.log(bold().green('Done!'));
     } else {

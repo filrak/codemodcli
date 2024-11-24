@@ -2,10 +2,10 @@ const { useChat } = require('./chat');
 const { readFileList, readFiles } = require('./files');
 const fs = require('fs');
 
-const fromFileContent = (content) => ({
+const fromContent = (content) => ({
     extractFilesToEdit: async (additionalInstructions) => {
-        const { content: fileToEdit } = await useChat(`Read the following file and extract the list of files that needs to be changed. Answer only with a list of files separated by commas${additionalInstructions}, ${fileContent}`);
-        const filesToModify = fileToEdit.split(',').map(file => currentDirectory + options.workingDir + file.replace(/\s/g, ''));
+        const { content: filesToEdit } = await useChat(`Read the following file and extract the list of files that needs to be changed. Answer only with a list of files separated by commas${additionalInstructions}, ${fileContent}`);
+        const filesToModify = filesToEdit.split(',').map(file => currentDirectory + options.workingDir + file.replace(/\s/g, ''));
         filesToModifyContent = readFileList(filesToModify);
         return filesToModifyContent;
     }
@@ -41,4 +41,6 @@ module.exports = {
     fromFile,
     directory,
     saveToFile,
+    file,
+    fromContent
 }
