@@ -33,6 +33,10 @@ const file = (path) => ({
         } catch (error) {
             console.error('Error saving file:', error);
         }
+    },
+    edit: async function (instructions) {
+        const { content: editedContent } = await useChat(`Edit the following file content by following the instructions: ${instructions}, ${this.toString()}`);
+        this.save(editedContent);
     }
 });
 
