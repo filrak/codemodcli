@@ -2,9 +2,8 @@ const { bold, green } = require('kleur');
 
 const { useChat } = require('./chat');
 const { cloneRepository } = require('./repo');
-const { readFileList, readFile, writeFile, isFile,  readFiles } = require('./files');
+const { fileListToObject, writeFile, isFile, directory, file } = require('./files');
 const { useScrapper } = require('./scrapping');
-const { directory, file } = require('./utilities.wip');
 const frameworkInstructions = {
   nuxt: 'Ignore tsx file edits and dont put them on a list.',
   next: 'Ignore vue files edits and dont put them on a list.'
@@ -43,10 +42,10 @@ async function runCodemod(options = { workingDir: '/' }) {
       console.log(bold('Extracing list of files to edit from the instructions...'));
       const { content: filesToEdit } = await useChat(`Read the following instructions and extract the list of files that needs to be changed. Answer only with a list of files separated by commas${frameworkInstructions[options.framework]}${instructions}`);
       const filesToModify = filesToEdit.split(',').map(file => currentDirectory + options.workingDir + file.replace(/\s/g, ''));
-      filesToModifyContent = readFileList(filesToModify);
+      filesToModifyContent = fileListToObject(filesToModify);
       console.log(bold().green('Done!'));
     } else {
-      filesToModifyContent = readFiles(currentDirectory + options.workingDir);
+      filesToModifyContent = directory(currentDirectory + options.workingDir).toObject();
     }
     console.log(bold('Modifying the files...'));
 

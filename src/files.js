@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function readFileList(fileList) {
+function fileListToObject(fileList) {
   const fileContent = {};
   for (const filePath of fileList) {
     try {
@@ -55,10 +55,40 @@ function readFiles(dirPath) {
   return fileContent;
 }
 
+// utilities
+
+const directory = (path) => ({
+  toObject: () => {
+      return readFiles(path);
+  }
+});
+
+
+const file = (path) => ({
+  toString: async function () {
+      try {
+          const content = await fs.promises.readFile(path, 'utf8');
+          return content;
+      } catch (error) {
+          console.error('Error reading file:', error);
+          return '';
+      }
+  },
+  save: async function (content) {
+      try {
+          await fs.promises.writeFile(path, content);
+      } catch (error) {
+          console.error('Error saving file:', error);
+      }
+  }
+});
+
 module.exports = { 
-  readFileList, 
+  fileListToObject, 
   readFiles, 
   readFile,
   writeFile,
-  isFile
+  isFile,
+  file,
+  directory
 };
