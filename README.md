@@ -33,4 +33,6 @@ node cli --
 - [ ] Test for migration guides
 - [ ] Better error handling and gracefull failure
 - [ ] Ste-by-step input for the CLI
+- [ ] Add claude as alternative option
+- [ ] Allow for multiple agents for file processing instead of a generic one (esp. for more complex tasks)
 - [x] Instructions from the URL
