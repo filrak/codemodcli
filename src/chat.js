@@ -5,6 +5,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
+// TODO: Add Claude as alternative option
 async function useChat(prompt) {
     const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",
