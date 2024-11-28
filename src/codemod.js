@@ -2,7 +2,7 @@ const { bold, green } = require('kleur');
 
 const { useChat } = require('./chat');
 const { cloneRepository } = require('./repo');
-const { fileListToObject, writeFile, isFile, directory, file } = require('./files');
+const { fileListToObject, isFile, directory, file } = require('./files');
 const { useScrapper } = require('./scrapping');
 
 const frameworkInstructions = {
@@ -43,11 +43,11 @@ async function runCodemod(options = { workingDir: '/' }) {
   } else {
     filesToModifyContent = directory(currentDirectory + options.workingDir).toObject();
   }
-  
+
   console.log(bold('Modifying the files...'));
   for (const [filePath, content] of Object.entries(filesToModifyContent)) {
       const changedFile = await useChat(`You are a developer with a task of modifying a list of files following specific instructions. Modify the following file ${content} according to the instructions in ${instructions}, and return only the modified file. Do not include any other text than the modified file, even the formatting for code blocks.`);
-      writeFile(filePath, changedFile.content);
+      file(filePath).save(changedFile.content)
       console.log(green().bold('Modified file: ') + filePath);
   }
   console.log(bold().bgGreen('Everything done!'));

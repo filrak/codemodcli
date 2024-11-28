@@ -13,19 +13,6 @@ function fileListToObject(fileList) {
   return fileContent;
 }
 
-function readFile(filePath) {
-  try {
-    return fs.readFileSync(filePath, 'utf-8');
-  } catch (error) {
-    console.error(`Error reading file ${filePath}:`, error);
-    return null;
-  }
-}
-
-function writeFile(filePath, content) {
-    fs.writeFileSync(filePath, content);
-}
-
 function isFile(path) {
   try {
     const stats = fs.statSync(path);
@@ -65,29 +52,25 @@ const directory = (path) => ({
 
 
 const file = (path) => ({
-  toString: async function () {
-      try {
-          const content = await fs.promises.readFile(path, 'utf8');
-          return content;
-      } catch (error) {
-          console.error('Error reading file:', error);
-          return '';
-      }
+  toString: function () {
+    try {
+      return fs.readFileSync(path, 'utf-8');
+    } catch (error) {
+      console.error(`Error reading file ${filePath}:`, error);
+      return null;
+    }
   },
-  save: async function (content) {
-      try {
-          await fs.promises.writeFile(path, content);
-      } catch (error) {
-          console.error('Error saving file:', error);
-      }
+  save: function (content) {
+    try {
+        fs.writeFileSync(path, content);
+    } catch (error) {
+        console.error('Error saving file:', error);
+    }
   }
 });
 
 module.exports = { 
   fileListToObject, 
-  readFiles, 
-  readFile,
-  writeFile,
   isFile,
   file,
   directory
