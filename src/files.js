@@ -22,31 +22,25 @@ function isFile(path) {
   }
 }
 
-function readFiles(dirPath) {
-  const fileContent = {};
-  try {
-    const files = fs.readdirSync(dirPath);
-    for (const file of files) {
-      const filePath = `${dirPath}/${file}`;
-      if (isFile(filePath)) {
-        try {
-          fileContent[filePath] = fs.readFileSync(filePath, 'utf-8');
-        } catch (error) {
-          console.error(`Error reading file ${filePath}:`, error);
-        }
-      }
-    }
-  } catch (error) {
-    console.error(`Error reading directory ${dirPath}:`, error);
-  }
-  return fileContent;
-}
-
-// utilities
-
 const directory = (path) => ({
   toObject: () => {
-      return readFiles(path);
+    const fileContent = {};
+    try {
+      const files = fs.readdirSync(dirPath);
+      for (const file of files) {
+        const filePath = `${dirPath}/${file}`;
+        if (isFile(filePath)) {
+          try {
+            fileContent[filePath] = fs.readFileSync(filePath, 'utf-8');
+          } catch (error) {
+            console.error(`Error reading file ${filePath}:`, error);
+          }
+        }
+      }
+    } catch (error) {
+      console.error(`Error reading directory ${dirPath}:`, error);
+    }
+    return fileContent;
   }
 });
 
