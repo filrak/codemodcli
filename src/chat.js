@@ -1,9 +1,6 @@
 require('dotenv').config();
 const OpenAI = require('openai');
-const { Claude } = require('claude-sdk');
-
-
-const anthropic = new Anthropic();
+const Anthropic = require('@anthropic-ai/sdk');
 
 async function useChat(prompt, model = "gpt-4o-mini") {
     if (model === "gpt-4o-mini") {
